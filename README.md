@@ -36,5 +36,5 @@ Boosting takes advantage of using a collection of "weak" learners in order to pr
 
 <sup>Reference: Schapire, Robert E. "The boosting approach to machine learning: An overview." Nonlinear estimation and classification. Springer, New York, NY, 2003.
 </sup>
-<sup>Special thanks to Professor Mike Izbicki https://github.com/mikeizbicki
+<sup>Special thanks to Professor Mike Izbicki https://izbicki.me/
 </sup>
