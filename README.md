@@ -22,7 +22,7 @@ Now that we have a collection of stumps and a weight based on how well they were
 
 To see this model in action, I have included a file, abc.py, using the AdaBoost classifier from Scikit Learn [Scikit Learn](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) on a toy-data set.
 
-Once we have the data imported, we define what model we are using and how many estimators we would like on like 17 `abc = AdaBoostClassifier(n_estimators=50)`
+Once we have the data imported, we define what model we are using and how many estimators we would like on line 17 `abc = AdaBoostClassifier(n_estimators=50)`
 
 We then train the model using the `fit` function on line 21 `model = abc.fit(X_train, y_train)`.
 
