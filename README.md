@@ -1,6 +1,8 @@
-# Boosting-AdaBoost
+# Boosting and AdaBoost
 
 Normally when someone thinks of a machine learning algorithm they picture a Neural Network or some other model training on data to become the “expert” on the material and provide predictions. This approach takes one learner and performs a task. Just as we like to get second opinions in our day to day to get a better picture and more accurate results, ensemble methods were produced to get second, third, and fourth opinions to reduce error and bias. Ensemble methods take advantage of multiple learners in order to come to a decision. Because we are considering the results from multiple learners, they need not be as accurate as a single learner. In fact, we just need each of these “weak” learners to do better than random guessing. Boosting is a subset of the ensemble method that “boosts” the importance of data that we are misclassifying for subsequent learners to focus on. Boosting builds each learner one after another on what the learners before misclassified. 
+
+### AdaBoost
 
 To explain how boosting works, we will look at the most popular version of boosting, AdaBoost. AdaBoost was developed by Freund and Schapier in 1996 and it is a model that is often called the “best out-of-the-box classifier”. This is due to the very strong results and ease of implementation. To build the AdaBoost model we will take advantage of a large number of “weak” classifiers. One such “weak” classifier that is commonly used as the building block to AdaBoost is the decision stump. Decision stumps are the most basic form of a decision tree, in that they only have one test with 2 possible outcomes, true or false. 
 
@@ -16,6 +18,8 @@ We then rinse and repeat, continuing this process over and over again. At each s
 
 Now that we have a collection of stumps and a weight based on how well they were able to classify the data, we can generate our model for predictions. In order to evaluate a new data point and make a prediction, our AdaBoost model will consult each of our decision stumps and “listen” to their responses based on their respective weights. The better a stump did on our training data, the higher the weight it received and the more it will influence our predictions of new data. Essentially it is a weighted average of the outputs from the decision stumps. Because boosting models emphasise the data our classifier is not doing well on, outliers and mislabeled data will have a relatively large effect on our results, so spending the time to clean the data can be very beneficial.
 
+### Demo
+
 To see this model in action, I have included a file, abc.py, using the AdaBoost classifier from Scikit Learn [Scikit Learn](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) on a toy-data set.
 
 Once we have the data imported, we define what model we are using and how many estimators we would like on like 17 `abc = AdaBoostClassifier(n_estimators=50)`
@@ -25,3 +29,12 @@ We then train the model using the `fit` function on line 21 `model = abc.fit(X_t
 And we can make our predictions using the `predict` function as seen on line 25 `y_pred = model.predict(X_test)`
 
 When run on the [Breast Cancer toy data set](https://scikit-learn.org/stable/datasets/index.html), without having to adjust any hyperparameters, we can achieve an accuracy of: `Accuracy: 0.9532163742690059`, showing just how powerful the boosting method can be and how easy it can be to implement.
+
+### Summary
+
+Boosting takes advantage of using a collection of "weak" learners in order to produce strong results. Each additional learner in these boosting models gets fed a subset of the data or a weighted data set to in order for the learner to prioritise the data that learners before it had trouble classifying. By combining these weak learners, we are able to increase accuracy and reduce bias, but these models are susceptible to outliers, so cleaning the data before training can greatly increase performance.
+
+<sup>Reference: Schapire, Robert E. "The boosting approach to machine learning: An overview." Nonlinear estimation and classification. Springer, New York, NY, 2003.
+</sup>
+<sup>Special thanks to Professor Mike Izbicki https://github.com/mikeizbicki
+</sup>
